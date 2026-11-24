@@ -1,0 +1,636 @@
+/* ==========================================================================
+   VARIABLES CSS Y RESET GLOBAL
+   ========================================================================== */
+:root {
+    --primary-color: #0f2942;      /* Azul marino corporativo */
+    --secondary-color: #1e4d7b;    /* Azul medio */
+    --accent-color: #f59e0b;       /* Ámbar / Dorado automotriz */
+    --accent-hover: #d97706;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 6px 15px rgba(15, 41, 66, 0.08);
+    --transition: all 0.3s ease;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN (FLEXBOX + MENÚ HAMBURGUESA)
+   ========================================================================== */
+.site-header {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.brand-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--bg-white);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.brand-logo span {
+    color: var(--accent-color);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--accent-color);
+    color: var(--bg-white);
+    font-size: 1.5rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-list a {
+    color: var(--bg-white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   BANNER PRINCIPAL (HERO)
+   ========================================================================== */
+.hero-banner {
+    background: linear-gradient(rgba(15, 41, 66, 0.85), rgba(15, 41, 66, 0.9)),
+                url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    color: var(--bg-white);
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    color: #e2e8f0;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    margin: 0.35rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--bg-white);
+    border: 2px solid var(--bg-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0 0 0;
+}
+
+/* ==========================================================================
+   SECCIONES Y GRID GENERAL
+   ========================================================================== */
+.section-container {
+    padding: 4rem 5%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.bg-alt {
+    background-color: var(--bg-white);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h1, .section-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.info-card {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   TABLA DE TARIFAS Y REQUISITOS (INDEX)
+   ========================================================================== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 2.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-white);
+    min-width: 550px;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-table th {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.pricing-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+.requirements-box {
+    background-color: #eff6ff;
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius-md);
+}
+
+.requirements-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.requirements-box ul {
+    padding-left: 1.25rem;
+}
+
+/* ==========================================================================
+   CATÁLOGO DE VEHÍCULOS (CSS GRID)
+   ========================================================================== */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.25rem;
+    border: 1px solid var(--primary-color);
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.car-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.car-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.badge-exec { background-color: #0284c7; }
+.badge-suv { background-color: #059669; }
+
+.car-details {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.car-details h2 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.car-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent-hover);
+    margin-bottom: 1rem;
+}
+
+.car-price span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.car-specs {
+    list-style: none;
+    margin-bottom: auto;
+    font-size: 0.95rem;
+}
+
+.car-specs li {
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   FORMULARIO COTIZADOR Y ALERTAS (CONTACTO)
+   ========================================================================== */
+.quote-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.quote-form {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.quote-form fieldset {
+    border: none;
+    margin-bottom: 1.75rem;
+}
+
+.quote-form legend {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    width: 100%;
+}
+
+.quote-form label {
+    display: block;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(15, 41, 66, 0.1);
+}
+
+.input-error {
+    border-color: #dc2626 !important;
+    background-color: #fef2f2;
+}
+
+.form-feedback {
+    display: block;
+    margin-top: 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-feedback.error {
+    padding: 1rem;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid #dc2626;
+}
+
+.form-feedback.error ul {
+    margin-top: 0.5rem;
+    padding-left: 1.25rem;
+}
+
+.form-feedback.success {
+    padding: 1rem;
+    background-color: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid var(--success-color);
+}
+
+.quote-summary {
+    background: var(--primary-color);
+    color: var(--bg-white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.quote-summary h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.summary-note {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.summary-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 0;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.summary-list dd {
+    text-align: right;
+    font-weight: 600;
+}
+
+.total-box {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-box strong {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+}
+
+.guarantee-text {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+}
+
+/* ==========================================================================
+   FOOTER (FLEXBOX)
+   ========================================================================== */
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 3rem 5% 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-nav a:hover {
+    color: var(--accent-color);
+}
+
+.footer-copy {
+    width: 100%;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (TABLET Y MÓVIL < 768px)
+   ========================================================================== */
+
+/* Tablet (Hasta 1024px) */
+@media (max-width: 1024px) {
+    .grid-3-cols,
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quote-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Móvil (< 768px) */
+@media (max-width: 767px) {
+    .site-header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 1rem 4%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+        width: 100%;
+        padding-top: 1rem;
+    }
+
+    .main-nav.open {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .nav-list a {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 1.85rem;
+    }
+
+    .grid-3-cols,
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cotizador en línea y reservación de vehículos DriveFlex.">
+    <title>Cotizador y Reserva | DriveFlex</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="brand-logo">Drive<span>Flex</span></a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            ☰
+        </button>
+        <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio y Tarifas</a></li>
+                <li><a href="catalogo.html">Catálogo de Autos</a></li>
+                <li><a href="contacto.html" class="active">Cotizador y Reserva</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-container">
+            <header class="section-header">
+                <h1>Cotizador Digital y Solicitud de Reserva</h1>
+                <p>Calcula tu tarifa exacta al instante y envía tus datos para bloquear la disponibilidad de tu unidad.</p>
+            </header>
+
+            <section class="quote-layout">
+                <!-- Formulario de Cotización y Contacto -->
+                <form id="quoteForm" class="quote-form" action="#" method="post">
+                    <fieldset>
+                        <legend>1. Configura tu Renta</legend>
+
+                        <label for="categoria">Categoría del Vehículo *</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="">-- Selecciona una categoría --</option>
+                            <option value="650">Económico ($650 MXN / día)</option>
+                            <option value="1100">Sedán Ejecutivo ($1,100 MXN / día)</option>
+                            <option value="1550">SUV ($1,550 MXN / día)</option>
+                        </select>
+
+                        <label for="dias">Número de Días de Renta *</label>
+                        <input type="number" id="dias" name="dias" min="1" max="30" value="1" required>
+
+                        <label for="cobertura">Tipo de Cobertura *</label>
+                        <select id="cobertura" name="cobertura" required>
+                            <option value="0">Tarifa Base (Seguro básico incluido - $0 extra)</option>
+                            <option value="250">Cobertura Total 0% Deducible (+ $250 MXN / día)</option>
+                        </select>
+
+                        <label for="entrega">Punto de Entrega *</label>
+                        <select id="entrega" name="entrega" required>
+                            <option value="oficina">En Oficina Central DriveFlex</option>
+                            <option value="aeropuerto">Aeropuerto Internacional</option>
+                            <option value="domicilio">Entrega a Domicilio / Hotel (Especificar abajo)</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>2. Datos del Conductor</legend>
+
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Carlos Mendoza" minlength="3" required>
+
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+
+                        <label for="telefono">Teléfono / WhatsApp (10 dígitos) *</label>
+                        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" placeholder="Ej. 4771234567" title="Ingresa un número telefónico válido de 10 dígitos" required>
+
+                        <label for="fechaInicio">Fecha de Entrega *</label>
+                        <input type="date" id="fechaInicio" name="fechaInicio" required>
+
+                        <label for="comentarios">Dirección de entrega o comentarios adicionales</label>
+                        <textarea id="comentarios" name="comentarios" rows="3" placeholder="Indica dirección de entrega a domicilio, hora aproximada o solicitud de silla para bebé..."></textarea>
+                    </fieldset>
+
+                    <output id="formFeedback" class="form-feedback" aria-live="polite"></output>
+
+                    <button type="submit" class="btn-primary btn-block">Confirmar Solicitud de Reserva</button>
+                </form>
+
+                <!-- Resumen Visual de Cotización -->
+                <aside class="quote-summary" aria-live="polite">
+                    <h2>Resumen de tu Cotización</h2>
+                    <p class="summary-note">Precios expresados en Pesos Mexicanos (MXN) con IVA incluido.</p>
+                    
+                    <dl class="summary-list">
+                        <dt>Tarifa por vehículo:</dt>
+                        <dd id="resumenVehiculo">$0.00 MXN</dd>
+
+                        <dt>Días seleccionados:</dt>
+                        <dd id="resumenDias">1 día</dd>
+
+                        <dt>Cobertura adicional:</dt>
+                        <dd id="resumenCobertura">$0.00 MXN</dd>
+
+                        <dt>Kilometraje:</dt>
+                        <dd>Libre (Ilimitado)</dd>
+                    </dl>
+
+                    <section class="total-box">
+                        <span>Total Estimado:</span>
+                        <strong id="precioTotal">$0.00 MXN</strong>
+                    </section>
+
+                    <p class="guarantee-text">Sin cargos ocultos al recoger tu vehículo. El depósito en garantía es 100% reembolsable al entregar la unidad.</p>
+                </aside>
+            </section>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <section class="footer-info">
+            <h3>DriveFlex – Renta de Autos</h3>
+            <p>Movilidad ejecutiva, turística y personal sin complicaciones.</p>
+        </section>
+        <nav class="footer-nav" aria-label="Enlaces del pie de página">
+            <a href="index.html">Políticas y Coberturas</a>
+            <a href="catalogo.html">Flota Vehicular</a>
+            <a href="contacto.html">Cotizar en Línea</a>
+        </nav>
+        <p class="footer-copy">© 2026 DriveFlex Renta de Autos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
